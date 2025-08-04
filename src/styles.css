@@ -1,0 +1,29 @@
+
+.post-form {
+  font-family: monospace;
+}
+
+.post-form label {
+  font-weight: bold;
+}
+
+.section-header {
+  border-top: 4px solid lightgray;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.section-description {
+  color: #333;
+  margin-top: 0;
+}
+
+.section-description span {
+  color: red;
+}
+
+.post-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1em;
+}

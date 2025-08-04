@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container, Header, Segment } from 'semantic-ui-react';
+import PostTypeSelector from './components/PostTypeSelector';
+import QuestionForm from './components/QuestionForm';
+import ArticleForm from './components/ArticleForm';
+import './styles.css';
+
 
 function App() {
+  const [postType, setPostType] = useState('question');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container style={{ marginTop: '2em' }}>
+      <Header as='h1' textAlign='center'>New Post</Header>
+      <Segment>
+        <PostTypeSelector postType={postType} setPostType={setPostType} />
+        {postType === 'question' ? <QuestionForm /> : <ArticleForm />}
+      </Segment>
+    </Container>
   );
 }
 
