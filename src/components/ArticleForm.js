@@ -7,23 +7,26 @@ const ArticleForm = () => {
   const [text, setText] = useState('');
   const [tags, setTags] = useState('');
 
+  // WordCount for Description
   const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
   const isValid = wordCount >= 10;
 
+  //Article submit log for console
   const handleSubmit = () => {
     console.log('Article Submitted:', { title, abstract, text, tags });
     alert('Article submitted!');
   };
 
+  //Article Form 
   return (
     <div style={{ fontFamily: 'monospace' }}>
-      <div style={{ borderTop: '4px solid lightgray', padding: '10px 0' }}>
-        <b>What do you share</b>
-      </div>
-      <p style={{ color: '#333', marginTop: 0 }}>
-        Share your article by submitting this form.{' '}
+      {/*Article Header Section*/}
+      <div className="section-header">What do you want to share</div>
+      <p className="section-description">
+        Complete the form below to post up an article to the forum.{' '}
       </p>
 
+      {/* Form Title Section */}
       <Form style={{ fontFamily: 'monospace' }}>
         <label style={{ fontWeight: 'bold' }}>Title</label>
         <Form.Input
@@ -32,6 +35,7 @@ const ArticleForm = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
 
+      {/* Form Abstract Section */}
         <label style={{ fontWeight: 'bold' }}>Abstract</label>
         <Form.TextArea
           placeholder="Enter a 1-paragraph abstract"
@@ -40,6 +44,7 @@ const ArticleForm = () => {
           rows={2}
         />
 
+      {/* Form Description Section */}
         <label style={{ fontWeight: 'bold' }}>Article text</label>
         <Form.TextArea
           placeholder="Enter the article text min. 10 words"
@@ -48,6 +53,7 @@ const ArticleForm = () => {
           rows={6}
         />
 
+      {/* Form Tag Section */}
         <label style={{ fontWeight: 'bold' }}>Tags</label>
         <Form.Input
           placeholder="Please add up to 3 tags to describe what your article is about e.g., Java"

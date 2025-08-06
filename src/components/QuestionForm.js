@@ -6,21 +6,27 @@ const QuestionForm = () => {
   const [body, setBody] = useState('');
   const [tags, setTags] = useState('');
 
+  //Word count for Description
   const wordCount = body.trim().split(/\s+/).filter(Boolean).length;
   const isValid = wordCount >= 10;
-
+  
+  //Submit console log
   const handleSubmit = () => {
     console.log('Question Submitted:', { title, body, tags });
     alert('Question submitted!');
   };
 
+  //Question Form
   return (
     <div className="post-form">
+      
+      {/*Question Header Section*/}
       <div className="section-header">What do you want to ask</div>
       <p className="section-description">
         Complete the form below to post up a question to the forum.{' '}
       </p>
 
+      {/*Question Title Section*/}
       <Form>
         <label>Title</label>
         <Form.Input
@@ -28,7 +34,8 @@ const QuestionForm = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-
+      
+      {/*Question Description Section*/}
         <label>Describe your problem</label>
         <Form.TextArea
           placeholder="Describe your problem"
@@ -37,6 +44,7 @@ const QuestionForm = () => {
           rows={6}
         />
 
+      {/*Question Label Section*/}
         <label>Tags</label>
         <Form.Input
           placeholder="Please add up to 3 tags to describe what your question is about e.g., Java"
